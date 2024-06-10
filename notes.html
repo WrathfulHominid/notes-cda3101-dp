@@ -1,0 +1,165 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<title>CDA3101 Notes</title>
+		
+		<link rel="stylesheet" href="notes.css">
+
+		<script>
+			var script_path = "";
+		</script>
+
+	</head>
+
+
+
+	<body>
+
+
+
+		<div class="module" id="m1">
+
+			<h3>Module 1</h3>
+
+
+		</div>
+
+
+
+
+		<div class="module" id="m3">
+
+			<h3>Module 3</h3>
+
+			<img class="page-element" id="cond-codes" src="assets/m3/LEGV8-condCodes.png" title="LEGV8 Branch Condition Codes">
+
+			<img class="page-element" id="endian" src="assets/m3/endian.png" title="Big and Little Endian">
+
+			<img class="page-element" id="condition-explanation" src="assets/m3/LEGV8-condition-code-explanation.png" title="Condition Codes">
+
+
+			<div class="page-element">
+				<ul>
+					<h4>LEGV8 Reference Instruction Field Naming Convention</h4>
+					
+					<li>Opcode = OPeration CODE; number reference for given instruction.</li>
+					<li>Rd: Destination register</li>
+					<li>Rn: An operand in a register (first referenced in assembly code format) for an arithmetic operation.</li>
+					<li>Rm: An operand in a register (second referenced in assembly code format) for an arithmetic operation.</li>
+					<li class="nulldisplay">Ra: A value in a register to be used in an addition or subtraction. Think "accumulator"</li>
+					<li>Rt = Temporary (or Target, used differently in MiPS) Register</li>
+					<li>shamt = SHift AMounT</li>
+					<li>ALU_Immediate = Arithmetic Logic Unit Immediate value; a number value immediately assigned to operation</li>
+					<li>DT_Address = DaTa Address; (op, rt, and DT, which is which in instruction: "STUR x9, [x10, #4]"</li>
+					<li>op = 2-bit code for addressing arithmetic, somehow.</li>
+					<li>BR_Address = BRanch Address; a label</li>
+					<li>COND_BR_Address = CONDitional BRanch Address</li>
+					<li>MOV_Immediate = MOVe Immediate value</li>
+				</ul>
+			</div>
+
+		</div>
+
+
+
+		<div class="module" id="m4">
+
+			<h3>Module 4</h3>
+
+			<div class="page-element definitions">
+				<ul>
+					<h4>Module 4 Definitions</h4>
+					<h5>ch.2.4 Signed & Unsigned Numbers</h5>
+						<li>Binary digit: Also called binary bit. One of the two numbers in base 2, 0 or 1, that are the components of information.</li>
+						<li>Least significant bit: The rightmost bit in an LEGv8 doubleword.</li>
+						<li>Most significant bit: The leftmost bit in an LEGv8 doubleword.</li>
+						<li>Two's complement: A signed number representation where a leading 0 indicates a positive number and a leading 1 indicates a negative number. The complement of a value is obtained by complementing each bit (0 → 1 or 1 → 0), and then adding one to the result.</li>
+						<li>One's complement: A notation that represents the most negative value by 10 … 000two and the most positive value by 01 … 11two, leaving an equal number of negatives and positives but ending up with two zeros, one positive (00 … 00two) and one negative (11 … 11two). The term is also used to mean the inversion of every bit in a pattern: 0 to 1 and 1 to 0.</li>
+						<li>Biased notation: A notation that represents the most negative value by 00 … 000two and the most positive value by 11 … 11two, with 0 typically having the value 10 … 00two, thereby biasing the number such that the number plus the bias has a non-negative representation.</li>
+					<h5>ch.3.2 Addition & Subtraction</h5>
+						<li>Arithmetic Logic Unit (ALU): Hardware that performs addition, subtraction, and usually logical operations such as AND and OR.</li>
+					<h5>ch.3.4 Division</h5>
+						<li>Dividend: A number being divided.</li>
+						<li>Divisor: A number that the dividend is divided by.</li>
+						<li>Quotient: The primary result of a division; a number that when multiplied by the divisor and added to the remainder produces the dividend.</li>
+						<li>Remainder: The secondary result of a division; a number that when added to the product of the quotient and the divisor produces the dividend.</li>
+					<h5>ch.3.5 Floating Point</h5>
+						<li>Scientific notation: A notation that renders numbers with a single digit to the left of the decimal point.</li>
+						<li>Normalized: A number in floating-point notation that has no leading 0s.</li>
+						<li>Floating point: Computer arithmetic that represents numbers in which the binary point is not fixed.</li>
+						<li>Fraction: The value, generally between 0 and 1, placed in the fraction field. The fraction is also called the mantissa.</li>
+						<li>Exponent: In the numerical representation system of floating-point arithmetic, the value that is placed in the exponent field.</li>
+						<li>Overflow (floating-point): A situation in which a positive exponent becomes too large to fit in the exponent field.</li>
+						<li>Underflow (floating-point): A situation in which a negative exponent becomes too large to fit in the exponent field.</li>
+						<li>Double precision: A floating-point value represented in a 64-bit doubleword.</li>
+						<li>Single precision: A floating-point value represented in a 32-bit word.</li>
+						<li>Exception: Also called interrupt. An unscheduled event that disrupts program execution; used to detect overflow.</li>
+						<li>Interrupt: An exception that comes from outside of the processer. (Some architectures use the term interrupt for all exceptions.</li>
+						<li>Guard: The first of two extra bits kept on the right during intermediate calculations of floating-point numbers; used to improve rounding accuracy.</li>
+						<li>Round: Method to make the intermediate floating-point result fit the floating-point format; the goal is typically to find the nearest number that can be represented in the format. It is also the name of the second of two extra bits kept on the right during intermediate floating-point calculations, which improves rounding accuracy.</li>
+						<li>Units in the last place (ulp): The number of bits in error in the least significant bits of the significand between the actual number and the number that can be represented.</li>
+						<li>Sticky bit: A bit used in rounding in addition to guard and round that is set whenever there are nonzero bits to the right of the round bit.</li>
+						<li>Fused multiply add: A floating-point instruction that performs both a multiply and an add, but rounds only once after the add.</li>
+				</ul>
+			</div>
+
+
+			<img class="page-element" id="div-naive" src="assets/m4/datapath-division-naive.png" title="Division Naive">
+
+			<img class="page-element" id="div-refined" src="assets/m4/datapath-division-refined.png" title="Division refined">
+
+			<img class="page-element" id="div-stepbystep" src="assets/m4/datapath-division-stepbystep.png" title="Division Step-by-Step">
+
+
+			<img class="page-element" id="mult-naive" src="assets/m4/datapath-multiplication-naive.png" title="Multiplication Naive">
+
+			<img class="page-element" id="mult-refined" src="assets/m4/datapath-multiplication-refined.png" title="Multiplication Refined">
+
+			<img class="page-element" id="mult-stepbystep" src="assets/m4/datapath-multiplication-stepbystep.png" title="Multiplication Step-by-Step">
+
+			<img class="page-element" id="mult-fast" src="assets/m4/datapath-multiplication-fast.png" title="Multiplication Fast">
+
+		</div>
+
+
+<!--
+		<script async src="assets/scripts/ModuleDisplay.js">
+			var module_hide = ["m1"];
+			window.addEventListener('DOMContentLoaded', ModuleDisplay);
+		</script>
+-->
+
+
+		<script async>
+			function testing()
+			{
+				// ++++++ ADD MODULE ID'S TO HIDE THOSE MODULES; USE SECOND VAR DECLARATION TO HIDE ALL +++++ -----README
+				// TODO: Make this work from imported file.
+
+				//var module_hide = ["m1", "m3", "m4"];
+				//var module_hide = document.querySelectorAll(".module").id;
+				var module_hide = ["#m1"];
+
+				module_hide.forEach( (element) => { document.querySelector(element).classList.add("nulldisplay"); } );
+			}
+			testing();
+		</script>
+
+
+
+	</body>
+
+
+
+</html>

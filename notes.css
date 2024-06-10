@@ -1,0 +1,70 @@
+
+body
+{
+	display: flex;
+	flex-flow: column;
+
+	padding: 0;
+	margin: 0;
+}
+
+.module
+{
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+
+	/* -----TODO: Find how to make module class overflow fill up to multiple of 100 view height to ensure next one starts at page start for printing. */
+	height: 100vh;
+}
+
+.page-element
+{
+}
+
+img
+{
+	max-width: 50vw;
+	max-height: 50vh;
+}
+
+ul
+{
+   list-style-position: inside;
+
+	display: flex;
+	flex-flow: column;
+
+	background-color: #5a5a5a30;
+	border-radius: 10px;
+
+	padding: 1%;
+
+}
+
+ul h4,h5
+{
+	margin: 0;
+}
+
+h3
+{
+	flex-basis: 100%;
+
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+.nulldisplay
+{
+	transform: scale(0, 0); 
+	display: none;
+}
+
+.nulldisplay *
+{
+	transform: scale(0, 0);
+	display: none;
+}
